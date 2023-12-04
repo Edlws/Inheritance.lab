@@ -1,6 +1,6 @@
 #include "studentFirstSession.h"
 
-StudentFirstSession::StudentFirstSession(string _name, int _course, int _group, int _grades[4]): Student(_name, _course, _group) {
+StudentFirstSession::StudentFirstSession(char* _name, int _course, int _group, int _grades[4]): Student(_name, _course, _group) {
     for (int i = 0; i < 4; i++) {
         grades1[i] = _grades[i];
     }
@@ -25,13 +25,16 @@ void StudentFirstSession::setGrade(int number, int value) {
 ostream& operator<<(ostream& ostream, StudentFirstSession& student) {
     ostream << "Student ID: " << student.studentID << endl
             << "Record Book number: " << student.studentID << endl
-            << "Name: " << student.name << endl
-            << "Course: " << student.course << endl
+            << "Name: ";
+            for (int i = 0; i < sizeof (student.name); i++){
+                cout << student.name[i];
+            }
+    ostream << endl << "Course: " << student.course << endl
             << "Group: " << student.group << endl
             << "Grades after first session: ";
-    for (int i = 0; i < 4; i++) {
-        ostream << student.grades1[i] << " ";
-    }
+            for (int i = 0; i < 4; i++) {
+                ostream << student.grades1[i] << " ";
+            }
     ostream << endl;
     return ostream;
 }

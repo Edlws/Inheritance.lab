@@ -58,5 +58,6 @@ int main() {
         }
     }
     if (counter != 0) cout << "2nd group total average after second session: " << total / counter << endl;
+    cout << student6;
     return 0;
 }

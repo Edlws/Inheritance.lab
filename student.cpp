@@ -3,7 +3,7 @@
 
 int Student::counterID = 1;
 
-Student::Student(string _name, int _course, int _group): studentID(counterID++), course(_course), RecordBookNumber(studentID) {
+Student::Student(char* _name, int _course, int _group): studentID(counterID++), course(_course), RecordBookNumber(studentID) {
     name = _name;
     group = _group;
 }
@@ -14,11 +14,11 @@ Student::Student(Student& other): studentID(counterID++), RecordBookNumber(stude
     group = other.group;
 }
 
-void Student::setName(string _name){
+void Student::setName(char* _name){
     name = _name;
 }
 
-string Student::getName(){
+char* Student::getName(){
     return name;
 }
 
@@ -41,8 +41,11 @@ int Student::getGroup(){
 ostream& operator<<(ostream& ostream, Student& student) {
     ostream << "Student ID: " << student.studentID << endl
             << "Record Book number: " << student.studentID << endl
-            << "Name: " << student.name << endl
-            << "Course: " << student.course << endl
+            << "Name: ";
+            for (int i = 0; i < sizeof (student.name); i++){
+                cout << student.name[i];
+            }
+    ostream << endl << "Course: " << student.course << endl
             << "Group: " << student.group << endl;
     return ostream;
 }

@@ -8,17 +8,17 @@ class Student {
 protected:
     const int studentID;
     static int counterID;
-    string name;
+    char* name;
     int course;
     int group;
     const int RecordBookNumber;
 
 public:
-    Student(string _name, int _course, int _group);
+    Student(char* _name, int _course, int _group);
     Student(Student& other);
 
-    void setName(string _name);
-    string getName();
+    void setName(char* _name);
+    char* getName();
     void setCourse(int _course);
     int getCourse();
     void setGroup(int _group);
